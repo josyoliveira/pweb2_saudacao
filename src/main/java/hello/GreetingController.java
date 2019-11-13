@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +31,10 @@ public class GreetingController {
         return new ModelAndView("/greeting.html");
     }
 
+    @RequestMapping("/greeting/form")
+    public ModelAndView greetingSubmit(@ModelAttribute Greeting greeting) {
+        return new ModelAndView("result.html");
+    }
 
     @RequestMapping("/greeting/time")
     public Greeting greetingTime(@RequestParam(value = "hour", defaultValue = "0") int hour) {
