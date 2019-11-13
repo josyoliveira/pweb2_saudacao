@@ -36,6 +36,7 @@ public class GreetingController {
         return new ModelAndView("result.html");
     }
 
+    
     @RequestMapping("/greeting/time")
     public Greeting greetingTime(@RequestParam(value = "hour", defaultValue = "0") int hour) {
         if (hour >= 12 && hour <= 18) {
