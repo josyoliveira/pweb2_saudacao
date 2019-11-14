@@ -1,23 +1,23 @@
 package hello;
 
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicLong;
+// import java.util.ArrayList;
+// import java.util.concurrent.atomic.AtomicLong;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class GreetingController {
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+    // private static final String template = "Hello, %s!";
+    // private final AtomicLong counter = new AtomicLong();
 
     // @RequestMapping("/greeting")
     // public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
@@ -25,40 +25,40 @@ public class GreetingController {
     // }
 
 
-    @RequestMapping("/greeting")
-    public ModelAndView greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
-        model.addAttribute("name", name);
-        return new ModelAndView("/greeting.html");
+    @GetMapping("/greeting")
+    public ModelAndView greetingForm(Model model) {
+        model.addAttribute("greeting", new Greeting());
+        return new ModelAndView("greeting.html");
     }
 
-    @RequestMapping("/greeting/form")
+    @PostMapping("/greeting")
     public ModelAndView greetingSubmit(@ModelAttribute Greeting greeting) {
         return new ModelAndView("result.html");
     }
 
     
-    @RequestMapping("/greeting/time")
-    public Greeting greetingTime(@RequestParam(value = "hour", defaultValue = "0") int hour) {
-        if (hour >= 12 && hour <= 18) {
-            return new Greeting(counter.incrementAndGet(), "Boa Tarde");
-        }else if (hour > 18 && hour <= 23) {
-            return new Greeting(counter.incrementAndGet(), "Boa Noite");
-        } else {
-            return new Greeting(counter.incrementAndGet(), "Bom Dia");
-        }
-    }
+    // @RequestMapping("/greeting/time")
+    // public Greeting greetingTime(@RequestParam(value = "hour", defaultValue = "0") int hour) {
+    //     if (hour >= 12 && hour <= 18) {
+    //         return new Greeting(counter.incrementAndGet(), "Boa Tarde");
+    //     }else if (hour > 18 && hour <= 23) {
+    //         return new Greeting(counter.incrementAndGet(), "Boa Noite");
+    //     } else {
+    //         return new Greeting(counter.incrementAndGet(), "Bom Dia");
+    //     }
+    // }
 
-    @RequestMapping("/greeting/{code}")
-    public Greeting List(@PathVariable(value = "code") int code) {
-        ArrayList<String> lista = new ArrayList<String>();
+    // @RequestMapping("/greeting/{code}")
+    // public Greeting List(@PathVariable(value = "code") int code) {
+    //     ArrayList<String> lista = new ArrayList<String>();
 
-        lista.add("O importante não é vencer todos os dias, mas lutar sempre.");
-        lista.add("Maior que a tristeza de não haver vencido é a vergonha de não ter lutado!");
-        lista.add("É melhor conquistar a si mesmo do que vencer mil batalhas.");
-        lista.add("Quem ousou conquistar e saiu pra lutar, chega mais longe!");
-        lista.add("O medo de perder tira a vontade de ganhar.");
+    //     lista.add("O importante não é vencer todos os dias, mas lutar sempre.");
+    //     lista.add("Maior que a tristeza de não haver vencido é a vergonha de não ter lutado!");
+    //     lista.add("É melhor conquistar a si mesmo do que vencer mil batalhas.");
+    //     lista.add("Quem ousou conquistar e saiu pra lutar, chega mais longe!");
+    //     lista.add("O medo de perder tira a vontade de ganhar.");
 
-        return new Greeting(counter.incrementAndGet(), lista.get(code));
+    //     return new Greeting(counter.incrementAndGet(), lista.get(code));
        
 
     //     if (hour >= 12 && hour <= 18) {
@@ -68,6 +68,5 @@ public class GreetingController {
     //     } else {
     //         return new Greeting(counter.incrementAndGet(), "Bom Dia");
     //     }
-    }
     
 }
