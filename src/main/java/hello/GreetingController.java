@@ -24,7 +24,6 @@ public class GreetingController {
     //     return new Greeting(counter.incrementAndGet(), String.format(template, name));
     // }
 
-
     @GetMapping("/greeting")
     public ModelAndView greetingForm(Model model) {
         model.addAttribute("greeting", new Greeting());
