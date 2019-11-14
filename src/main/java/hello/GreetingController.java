@@ -35,7 +35,6 @@ public class GreetingController {
     public ModelAndView greetingSubmit(@ModelAttribute Greeting greeting) {
         return new ModelAndView("result.html");
     }
-
     
     // @RequestMapping("/greeting/time")
     // public Greeting greetingTime(@RequestParam(value = "hour", defaultValue = "0") int hour) {
