@@ -8,6 +8,8 @@ public class Formulario {
     private String repetirSenha;
     private String modulo;
     private String preferencia;
+    // private ArrayList<String> modulo = new ArrayList<String>();
+    // private ArrayList<String> preferencia = new ArrayList<String>();
 
     public String getNome() {
         return nome;
@@ -56,6 +58,24 @@ public class Formulario {
     public void setPreferencia(String preferencia) {
         this.preferencia = preferencia;
     }
+    
 
+    // public ArrayList<String> getModulo() {
+    //     return modulo;
+    // }
+
+    // public void setModulo(ArrayList<String> modulo) {
+    //     this.modulo = modulo;
+    // }
+
+    // public ArrayList<String> getPreferencia() {
+    //     return preferencia;
+    // }
+
+    // public void setPreferencia(ArrayList<String> preferencia) {
+    //     this.preferencia = preferencia;
+    // }
+
+   
     
 }

@@ -1,27 +1,43 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Resultado</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table {
+            border: 1px solid #cccccc;
+        }
+
+        td {
+            padding: 12px;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Resultado</h1>
-    <table>
-        <tr>
-            <th>Nome</th>
-           <th>Email</th>
-            <!--  <th>Módulo</th>
-            <th>Preferências</th> -->
-        </tr>
-        <tr>
-            <th th:text="${formulario.nome}">
-            <th th:text="${formulario.email}">
-            <!-- <th th:text="${formulario.modelo}">
-            <th th:text="${formulario.preferencia}"> -->
-        </tr>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Módulo</th>
+                <th>Preferências</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${formulario.nome}">
+                <td th:text="${formulario.email}">
+                <td th:text="${formulario.modulo}">
+                <td th:text="${formulario.preferencia}">
+            </tr>
+        </tbody>
     </table>
     <!-- <p th:text="'id: ' + ${greeting.id}">
     <p th:text="'content: ' + ${greeting.content}">
     <a href="/greeting">Submit another message</a> -->
 </body>
+
 </html>

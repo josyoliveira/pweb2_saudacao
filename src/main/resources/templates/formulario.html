@@ -18,7 +18,7 @@
             var nome = document.getElementById('nome').value;
             var senha = document.getElementById('senha').value;
             var confirSenha = document.getElementById('confirSenha').value;
-            var check = document.getElementById('preferencias');
+            var check = document.getElementById('preferencias[]');
 
             if (document.getElementById('nome').value == "" || nome.length < 3) {
                 alert("Insira seu nome com pelo menos 3 caracteres");
@@ -52,12 +52,11 @@
                 return false;
             }
 
-            if (check.checked == false) {
+            if (check[0].checked == false || check[1].checked == false || check[2].checked == false) {
                 alert("Informe uma preferência.");
 
                 return false;
             }
-
         }  
     </script>
     <style>
@@ -90,20 +89,20 @@
                 <label for="confirSenha">Repertir senha: </label>
                 <input type="password" class="form-control" id="confirSenha" th:field="*{repetirSenha}" >
             </div>
-            <!--<div class="form-group">
+            <div class="form-group">
                 <label for="modulo">Módulo: </label>
-                <select class="form-control" id="modulo" th:field="*{modulo}">
-                    <option>Primeiro</option>
-                    <option>Segundo</option>
-                    <option>Terceiro</option>
+                <select path="formulario" class="form-control" id="modulo" th:field="*{modulo}">
+                    <option value="Primeiro">Primeiro</option>
+                    <option value="Segundo">Segundo</option>
+                    <option value="Terceiro">Terceiro</option>
                 </select>
             </div>
             <div class="form-group form-check">
                 <p><label class="form-check-label" for="preferencias">Preferências: </label></p>
-                <p><input type="checkbox" class="form-check-input" id="preferencias" th:field="*{preferencia}"> Análise e Projeto de Software</p>
-                <p><input type="checkbox" class="form-check-input" id="preferencias" th:field="*{preferencia}"> Programação web 2</p>
-                <p><input type="checkbox" class="form-check-input" id="preferencias" th:field="*{preferencia}"> Gestão e Qualidade de Software</p>
-            </div> -->
+                <p><input value="Análise e Projeto de Software" type="checkbox" class="form-check-input" id="preferencias[]" th:field="*{preferencia}"> Análise e Projeto de Software</p>
+                <p><input value="Programação web 2" type="checkbox" class="form-check-input" id="preferencias[]" th:field="*{preferencia}"> Programação web 2</p>
+                <p><input value="Gestão e Qualidade de Software" type="checkbox" class="form-check-input" id="preferencias[]" th:field="*{preferencia}"> Gestão e Qualidade de Software</p>
+            </div>
 
             <button type="submit" class="btn btn-primary" onclick="validarForm()">SALVAR</button>
             <button type="reset" class="btn btn-primary" id="limpar" onclick="limparForm()">LIMPAR</button>
