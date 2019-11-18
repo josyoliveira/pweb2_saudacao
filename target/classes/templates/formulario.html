@@ -18,7 +18,7 @@
             var nome = document.getElementById('nome').value;
             var senha = document.getElementById('senha').value;
             var confirSenha = document.getElementById('confirSenha').value;
-            var check = document.getElementById('preferencias[]');
+            var check = document.getElementById('preferencias');
 
             if (document.getElementById('nome').value == "" || nome.length < 3) {
                 alert("Insira seu nome com pelo menos 3 caracteres");
@@ -27,34 +27,33 @@
                 return false;
             }
 
-            if (document.getElementById('email').value == "" || document.getElementById('email').value.indexOf('@') == -1
+            else if (document.getElementById('email').value == "" || document.getElementById('email').value.indexOf('@') == -1
                 || document.getElementById('email').value.indexOf('.') == -1) {
                 alert("Preencha o seu E-MAIL corretamente");
                 document.getElementById('nome').focus();
 
                 return false;
             }
-            if (document.getElementById('senha').value == "" || senha.length < 6) {
+            else if (document.getElementById('senha').value == "" || senha.length < 6) {
                 alert("A senha deve ter pelo menos 6 caracteres");
                 document.getElementById('senha').focus();
 
                 return false;
             }
 
-            if (document.getElementById('confirSenha').value == "" || confirSenha.length < 6) {
+            else if (document.getElementById('confirSenha').value == "" || confirSenha.length < 6) {
                 alert('Preencha o campo repetir senha.');
                 document.getElementById('confirSenha').focus();
             }
 
-            if (senha != confirSenha) {
+            else if (senha != confirSenha) {
                 alert("Sua senha está diferente.");
                 document.getElementById('confirSenha').focus();
                 return false;
             }
 
-            if (check[0].checked == false || check[1].checked == false || check[2].checked == false) {
+            else if (check.checked == false) {
                 alert("Informe uma preferência.");
-
                 return false;
             }
         }  
@@ -99,12 +98,12 @@
             </div>
             <div class="form-group form-check">
                 <p><label class="form-check-label" for="preferencias">Preferências: </label></p>
-                <p><input value="Análise e Projeto de Software" type="checkbox" class="form-check-input" id="preferencias[]" th:field="*{preferencia}"> Análise e Projeto de Software</p>
-                <p><input value="Programação web 2" type="checkbox" class="form-check-input" id="preferencias[]" th:field="*{preferencia}"> Programação web 2</p>
-                <p><input value="Gestão e Qualidade de Software" type="checkbox" class="form-check-input" id="preferencias[]" th:field="*{preferencia}"> Gestão e Qualidade de Software</p>
+                <p><input value="Análise e Projeto de Software" type="checkbox" class="form-check-input" id="preferencias" th:field="*{preferencia}"> Análise e Projeto de Software</p>
+                <p><input value="Programação web 2" type="checkbox" class="form-check-input" id="preferencias" th:field="*{preferencia}"> Programação web 2</p>
+                <p><input value="Gestão e Qualidade de Software" type="checkbox" class="form-check-input" id="preferencias" th:field="*{preferencia}"> Gestão e Qualidade de Software</p>
             </div>
 
-            <button type="submit" class="btn btn-primary" onclick="validarForm()">SALVAR</button>
+            <button type="submit" class="btn btn-primary" onclick="validarForm();">SALVAR</button>
             <button type="reset" class="btn btn-primary" id="limpar" onclick="limparForm()">LIMPAR</button>
         </form>
 
@@ -117,7 +116,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-        </dev>
+        </div>
 </body>
 
 </html>
